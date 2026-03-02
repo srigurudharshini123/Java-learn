@@ -762,4 +762,365 @@ public class Condition2 {
 
 
 
+package learn;
+
+import java.util.Scanner;
+
+public class Condition3 {
+
+	public static void main(String[] args) {
+     
+		//Nested if tasks
+		Scanner sc=new Scanner(System.in);
+		
+		//1.check if a number is positive->then check even or odd 
+		 System.out.println("Enter Number: ");
+		 int num=sc.nextInt();
+		 if(num>0) {
+			 System.out.println("Positive number");
+			 if(num%2==0) {
+				 System.out.println("Even...");
+			 }
+			 else {
+				 System.out.println("Odd...");
+			 }
+		 }
+		 else if(num==0) {
+			 System.out.println("Zero");
+		 }
+		 else {
+			 System.out.println("Negative number");
+		 }
+		
+		
+		//2.check if the student passed all subject -> then check for distinction>=75
+		System.out.println("Enter 5 subject marks: ");
+		double m1=sc.nextDouble();
+		double m2=sc.nextDouble();
+		double m3=sc.nextDouble();
+		double m4=sc.nextDouble();
+		double m5=sc.nextDouble();
+		if(m1>=50 && m2>=50 && m3>=50 && m4>=50 && m5>=50) {
+			System.out.println("Passed all subject...");
+			double tot=(m1+m2+m3+m4+m5);
+			double percentage = (tot/500)*100;
+			if(percentage>=75) {
+				System.out.println(percentage+"% distinction");
+			}
+			else {
+				System.out.println(percentage+"% no distinction");
+			}
+		}
+		else {
+			System.out.println("Fail...");
+		}
+		
+		//3.check age >=18 -> then has driving license
+		System.out.println("Enter your age: ");
+		int age=sc.nextInt();
+		if(age>=18) {
+			System.out.println("Do you have license");
+			String lic=sc.next();
+			if(lic.equalsIgnoreCase("yes")) {
+				System.out.println("Eligible to drive");
+			}
+			else {
+				System.out.println("Not Eligible to drive");
+			}
+		}
+		else {
+			System.out.println("Not Eligible to drive");
+		}
+		
+		//4.check if login user is correct ->then check password
+		System.out.println("Existing user enter your user name: ");
+		String user=sc.next();
+		if(user.equals("gurudharshini")) {
+			System.out.println("Enter your password");
+			String pass=sc.next();
+			if(pass.equals("guru#123")) {
+				System.out.println("Login successfully");
+			}
+			else {
+				System.out.println("Incorrect password");
+			}
+		}
+		else {
+			System.out.println("Incorrect usename");
+		}
+		
+		
+		//5.check number is divisible by 5->then check divisible by 10
+		System.out.println("Enter Number");
+        int num=sc.nextInt();
+        if(num%5==0) {
+        	System.out.println("The number is divisible by 5");
+        	if(num%10==0) {
+        		System.out.println("The number is divisible by 10");
+        	}
+        	else {
+        		System.out.println("NOT divisible by 10");
+        	}
+        }
+		
+		//6.check if year is divisible by 4 -> then check leap year condition
+		System.out.println("Enter year: ");
+		int year=sc.nextInt();
+		if(year%4==0) {
+			if(year%400==0) {
+				System.out.println("Leap year");
+			}
+			else if(year%100==0) {
+					System.out.println("Not leap year");
+			}
+			else {
+				System.out.println("NOT leap year");
+			}
+		}
+		else {
+			System.out.println("NOT leap year");
+		}
+		
+		//7.check salary >30,000->experience >5 year for bonus
+		System.out.println("Enter salary");
+		int salary=sc.nextInt();
+		if(salary>30000) {
+			System.out.println("Enter your experience : ");
+			int year=sc.nextInt();
+			if(year>5) {
+				System.out.println("Eligible to get bonus...");
+			}
+			else {
+				System.out.println("Not eligible for bonus...");
+			}
+		}
+		
+		//8.check number is 3 digit-> check palindrome 
+		System.out.println("Enter number: ");
+		int n=sc.nextInt();
+		int num=n, reverse=0, rem;
+		if(n>=100 && n<=999) {
+			System.out.println("Three digit number");
+		 while(n>0) {
+			 rem=n%10;
+			 reverse*=10;
+			 reverse+=rem;
+			n/=10; 
+		 }
+		 if(num==reverse) {
+			 System.out.println("Palindrome");
+		 }
+		 else {
+			 System.out.println("Not a palindrome");
+		 }	 
+		}
+		else {
+			System.out.println("Not three digit number");
+		}
+		
+		
+		//9.check if  character is alphabet-> then check upper or lower case
+		System.out.println("Enter Character: ");
+		char ch=sc.next().charAt(0);
+		if((ch>='A' && ch<='Z')||(ch>='a' && ch<='z')) {
+			if(ch>='A' && ch<='Z') {
+				System.out.println("UpperCase");
+			}
+			else {
+				System.out.println("LowerCase");
+			}
+		}
+		else {
+			System.out.println("Not a alphabet");
+		}
+		
+		//10.check if the triangle is valid ->then check its type
+		System.out.println("Enter three sides of triangle: ");
+		int a=sc.nextInt();
+		int b=sc.nextInt();
+		int c=sc.nextInt();
+		if((a+b>c)&&(b+c>a)&&(a+c>b)) {
+			System.out.println("Valid triangle");
+			if(a==b && b==c && a==c) {
+				System.out.println("Equailateral Triangle");
+			}
+			else if(a==b || b==c || a==c) {
+				System.out.println("IsoSceles Triangle");
+			}
+			else if(a!=b && b!=c && a!=c) {
+				System.out.println("Scalene Triangle");
+			}
+		}
+		else {
+			System.out.println("Not valid triangle");
+		}
+		
+		//11.check if balance >0 -> withdraw amnt <=balance
+		System.out.println("Enter your account name and password");
+		String name=sc.next();
+		String pass=sc.next();
+		int bal=50000;
+		if(name.equals("guru") && pass.equals("@123")) {
+			if(bal>0) {
+				System.out.println("Enter withdraw ammount: ");
+				int amt=sc.nextInt();
+				   if(amt<=bal) {
+					bal-=amt;
+					System.out.println("Withdraw your ammount");
+					System.out.println("Current balance is: "+bal);
+				   }
+				   else {
+					System.out.println("Insufficient balence");
+				   }
+			}
+		}
+		else {
+			System.out.println("Incorrect user");
+		}
+		
+		//	12.check temperature >0 ->if less than 20 cold 
+		System.out.println("Enter temperature: ");
+		int temp=sc.nextInt();
+		if(temp>0) {
+			if(temp<=20) {
+				System.out.println("Cold");
+			}
+			else {
+				System.out.println("Hot");
+			}
+		}
+		else {
+			System.out.println("Freeze");
+		}
+		
+		//13.check mark>=35 ->check mark >=90
+		System.out.println("Enter mark: ");
+		int mark=sc.nextInt();
+		if(mark>=35) {
+			System.out.println("Pass");
+			if(mark>=90) {
+				System.out.println("Topper");
+			}
+		} else {
+			System.out.println("Fail");
+		}
+		
+		//14.check number>1-> then check prime
+		System.out.println("Enter number: ");
+		int n=sc.nextInt();
+		int c=0;
+		if(n>1) {
+			for(int i=2;i<n;i++) {
+				if(n%i==0) {
+					c++;
+				}
+			}
+			if(c==0) {
+				System.out.println("Prime number");
+			}
+			else {
+				System.out.println("Not Prime number");
+			}	
+			}
+        
+		//15.check if password length >=8 -> check if it contains a digit
+		System.out.println("Enter password: ");
+		String pass=sc.next();
+		char ch;
+		int c=0;
+		int len=pass.length();
+		if(len>=8) {
+			System.out.println("the password length is greater than 8 ");
+			for (int i=0;i<len;i++) {
+				ch=pass.charAt(i);
+				if(ch>='0' && ch<='9') {
+					c++;
+				}	
+			}
+			if(c>0) {
+				System.out.println("Password contains "+ c+" digit");
+			}
+			else {
+				System.out.println("Password doesn't contain digit");
+			}
+		}
+		
+		//16.check input is digit ->then check it is even digit
+		System.out.println("Enter character: ");
+		char ch=sc.next().charAt(0);
+		if(ch>='0' && ch<='9') {
+			System.out.println("It is digit");
+			int n=ch;
+			if(n%2==0) {
+				System.out.println("Even");
+			}
+			else {
+			 System.out.println("Odd");	
+			}
+		}
+	
+		//17.check employee department is "IT" ->check performance rating >=4
+		System.out.println("Enter employee department: ");
+		String dept=sc.next();
+		System.out.println("Enter rating");
+		int rating=sc.nextInt();
+		if(dept.equalsIgnoreCase("IT")) {
+			System.out.println("Department: IT ");
+			if(rating>=4) {
+				System.out.println("Good Performance");
+			}
+			else {
+				System.out.println("Poor Performance");
+			}
+		}
+		
+		//18.check purchase amt>1000 -> check customer is premium member
+//		System.out.println("Enter your purchase amount: ");
+//		int amt=sc.nextInt();
+//		if(amt>1000) {
+//			System.out.println("Enter you are premium member or not (Yes/No) ");
+//			String per_mem=sc.next();
+//			if(per_mem.equalsIgnoreCase("yes")) {
+//				System.out.println("customer is  premium member");
+//			}
+//			else {
+//				System.out.println("customer is not a premium member");
+//			}
+//		}
+		
+		
+		//19.check if number is divisible by 2 -> then check it is divisible by 4
+		System.out.println("Enter number: ");
+		int n=sc.nextInt();
+		if(n%2==0) {
+			if(n%4==0) {
+				System.out.println("The number is divisible by both 2 and 4");
+			}
+		}
+		else {
+			System.out.println("The number is not divisible by both 2 and 4");
+		}
+		
+		
+		//20.check if student attendance>=75% -> check mark>=50 for exam eligibility
+		System.out.println("Enter your attendance and mark: ");
+		int attend=sc.nextInt();
+		int mark=sc.nextInt();
+		if(attend>=75) {
+			if(mark>=50) {
+				System.out.println("eligible to attend exam");
+			}
+			else {
+				System.out.println("not eligible to attend exam");
+			}
+		}
+		
+		
+	}
+	}
+
+
+
+
+
 
