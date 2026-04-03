@@ -38,3 +38,45 @@ public class File_1 {
 	}
 
 }
+
+//		2.ser login system using file
+//		Task:
+//		Store username & password in file
+//		Take input from user
+//		Check if login is valid
+//		Challenge:
+//		Show "Invalid user" if not found
+
+import java.io.*;
+import java.util.Scanner;
+
+public class File_1 {
+
+	public static void main(String[] args) throws IOException {		
+Scanner sc=new Scanner(System.in);
+    System.out.println("Enter name: ");
+    String name=sc.next();
+    System.out.println("Enter password:");
+    String pass=sc.next();
+    int c=0;
+    BufferedReader br=new BufferedReader(new FileReader("C:\\Users\\ELCOT\\OneDrive\\Documents\\filetask\\login_record.txt"));
+    String line;
+    while((line=br.readLine())!=null){
+    	String data[]=line.split("_");
+    	if(data.length==2) {
+    		if(data[0].equalsIgnoreCase(name) && data[1].equals(pass)) {
+    			c++;
+    		}
+    	}
+    }
+   if(c>0) {
+	   System.out.println("Valid user...");
+   }
+   else {
+	   System.out.println("InValid user...");
+   }
+   
+		
+	}
+
+}
