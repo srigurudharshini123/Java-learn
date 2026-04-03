@@ -1,0 +1,40 @@
+package practice;
+1.college wants to store student details in a file.
+Task:
+Input: id, name, marks
+Save in file
+Read and display all students
+ Extra:
+Append new students without deleting old data
+import java.io.*;
+import java.util.Scanner;
+
+public class File_1 {
+
+	public static void main(String[] args) throws IOException {		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter number of students: ");
+		int n=sc.nextInt();
+		for(int i=1;i<=n;i++) {
+		System.out.println("Enter id,name,mark");
+		int id=sc.nextInt(); 
+		String name=sc.next();
+		double marks=sc.nextDouble();
+		FileWriter fw=new FileWriter("C:\\Users\\ELCOT\\OneDrive\\Documents\\filetask\\student_1.txt",true);
+		BufferedWriter bw=new BufferedWriter(fw);
+		bw.write("ID: "+id+" | ");
+		bw.write("Name: "+name+" | ");
+		bw.write("Mark: "+marks);
+		bw.newLine();
+		bw.close();
+		}
+      //display values
+      		BufferedReader br=new BufferedReader(new FileReader("C:\\Users\\ELCOT\\OneDrive\\Documents\\filetask\\student_1.txt"));
+      		String line;
+      		while((line=br.readLine())!=null) {
+      			System.out.println(line);
+      		}
+		
+	}
+
+}
