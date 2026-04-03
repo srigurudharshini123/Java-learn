@@ -1,0 +1,539 @@
+package learn;
+
+import java.util.Scanner;
+
+public abstract class TwoDArr {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+       //1.print 2d array elements
+		System.out.println("Enter array row size: ");
+		int n=s.nextInt();
+		System.out.println("Enter array column size: ");
+		int m=s.nextInt();
+		int tdarr[][]=new int[n][m];
+  System.out.println("Enter array elemnts: ");
+  for(int i=0;i<n;i++) {
+	  for(int j=0;j<m;j++) {
+		tdarr[i][j]=s.nextInt();  
+	  }
+  }
+  for(int i=0;i<n;i++) {
+	  for(int j=0;j<n;j++) {
+		  System.out.print(tdarr[i][j]+" ");
+	  }
+	  System.out.println();
+  }
+		
+		//2.sum of all elements
+		System.out.println("Enter array row size: ");
+		int n=s.nextInt(),sum=0;
+		System.out.println("Enter array column size: ");
+		int m=s.nextInt();
+		int tdarr[][]=new int[n][m];
+  System.out.println("Enter array elemnts: ");
+  for(int i=0;i<n;i++) {
+	  for(int j=0;j<m;j++) {
+		tdarr[i][j]=s.nextInt();  
+	  }
+  }
+  for(int i=0;i<n;i++) {
+	  for(int j=0;j<m;j++) {
+		  sum+=tdarr[i][j];
+	  }
+  }
+  System.out.println("Sum of all elements: "+sum);
+		
+		//3.row-wise sum
+		System.out.println("Enter array row size: ");
+		int n=s.nextInt();
+		System.out.println("Enter array column size: ");
+		int m=s.nextInt();
+		int tdarr[][]=new int[n][m];
+  System.out.println("Enter array elemnts: ");
+  for(int i=0;i<n;i++) {
+	  for(int j=0;j<m;j++) {
+		tdarr[i][j]=s.nextInt();  
+	  }
+  }
+  int row=1;
+  for(int i=0;i<n;i++) {
+	  int sum=0;
+	  for(int j=0;j<m;j++) {
+		  sum+=tdarr[i][j];
+	  }
+	  System.out.println("Row "+(row++)+" sum is: "+sum);
+  }
+  
+  //3.column wise sum
+		System.out.println("Enter array row size: ");
+		int n=s.nextInt();
+		System.out.println("Enter array column size: ");
+		int m=s.nextInt();
+		int arr[][]=new int[n][m];
+    System.out.println("Enter array elemnts: ");
+    for(int i=0;i<n;i++) {
+	  for(int j=0;j<m;j++) {
+		arr[i][j]=s.nextInt();  
+	  }
+  }
+    int col=1;
+    for(int i=0;i<m;i++) {
+    	int sum=0;
+    	for(int j=0;j<n;j++) {
+    	 sum+=arr[j][i];
+    	}
+    	System.out.println("Column "+(col++)+"sum is: "+sum);
+    }
+		
+		//4. minimum element
+		System.out.println("Enter array row size: ");
+		int n=s.nextInt();
+		System.out.println("Enter array column size: ");
+		int m=s.nextInt();
+		int arr[][]=new int[n][m];
+  System.out.println("Enter array elemnts: ");
+  for(int i=0;i<n;i++) {
+	  for(int j=0;j<m;j++) {
+		arr[i][j]=s.nextInt();  
+	  }
+  }
+  int min=arr[0][0];
+  for(int i=0;i<n;i++) {
+	  for(int j=0;j<m;j++) {
+		  if(min>arr[i][j]) {
+			  min=arr[i][j];
+		  }
+	  }
+  }
+  System.out.println("Minimum element is: "+min);
+  
+  //maximum element
+		System.out.println("Enter array row size: ");
+		int n=s.nextInt();
+		System.out.println("Enter array column size: ");
+		int m=s.nextInt();
+		int arr[][]=new int[n][m];
+  System.out.println("Enter array elemnts: ");
+  for(int i=0;i<n;i++) {
+	  for(int j=0;j<m;j++) {
+		arr[i][j]=s.nextInt();  
+	  }
+  }
+  int max=arr[0][0];
+  for(int i=0;i<n;i++) {
+	  for(int j=0;j<m;j++) {
+		  if(max<arr[i][j]) {
+			  max=arr[i][j];
+		  }
+	  }
+  }
+  System.out.println("Maximum element is: "+max);
+  
+  
+  //main diagonal elements
+		System.out.println("Enter array row size: ");
+		int n=s.nextInt();
+		System.out.println("Enter array column size: ");
+		int m=s.nextInt();
+		if(m==n) {
+		int arr[][]=new int[n][m];
+  System.out.println("Enter array elemnts: ");
+  for(int i=0;i<n;i++) {
+	  for(int j=0;j<m;j++) {
+		arr[i][j]=s.nextInt();  
+	  }
+  } 
+  System.out.println("Main Diagonal elemnts are: ");
+  for(int i=0;i<n;i++) {
+	  for(int j=0;j<m;j++) {
+		  if(i==j) {
+			  System.out.println(arr[i][j]);
+		  }
+		  
+	  }
+  }
+		}
+		else {
+			System.out.println("Enter equal row size and column size");
+		}
+		
+		//second diagonal  elements
+  System.out.println("Enter row size: ");
+  int n=s.nextInt();
+  System.out.println("Enter column size: ");
+  int m=s.nextInt();
+  if(n==m) {
+	  int arr[][]=new int[n][m];
+	  System.out.println("Enter array elements");
+	  for(int i=0;i<arr.length;i++) {
+		  for(int j=0;j<arr.length;j++) {
+			  arr[i][j]=s.nextInt();
+		  }
+	  }
+	  System.out.println("Second diagonal elements are: ");
+	  for(int i=0;i<n;i++) {
+		  for(int j=0;j<m;j++) {
+			  if(i+j == m-1) {
+		System.out.println(arr[i][j]);		  
+			  }
+		  }
+	  }
+
+		  
+  }
+  else {
+	  System.out.println("Enter equal row size and column size");
+  }
+		
+		//check if the matrix is square
+		
+		System.out.println("Enter row size: ");
+	  int n=s.nextInt();
+	  System.out.println("Enter column size: ");
+	  int m=s.nextInt();
+	  if(n==m) {
+		 
+		  int arr[][]=new int[n][m];
+		  System.out.println("Enter array elements");
+		  for(int i=0;i<arr.length;i++) {
+			  for(int j=0;j<arr.length;j++) {
+				  arr[i][j]=s.nextInt();
+			  }
+		  }
+		  System.out.println("Square matrix");
+		  for(int i=0;i<arr.length;i++) {
+			  for(int j=0;j<arr.length;j++) {
+				System.out.print(arr[i][j]);
+			  }
+			  System.out.println();
+		  } 
+	  }
+	  
+	  else {
+		System.out.println("not a square matrix");  
+	  }
+		
+		//transpose of matrix
+		System.out.println("Enter row size: ");
+		  int n=s.nextInt();
+		  System.out.println("Enter column size: ");
+		  int m=s.nextInt();
+		  int arr[][]=new int[n][m];
+		  System.out.println("Enter array elements");
+		  for(int i=0;i<n;i++) {
+			  for(int j=0;j<m;j++) {
+				  arr[i][j]=s.nextInt();
+			  }  
+		  }
+		  System.out.println("Before transpose matrix is");
+		  for(int i=0;i<n;i++) {
+			  for(int j=0;j<m;j++) {
+				System.out.print(arr[i][j]+" ");
+			  }
+			  System.out.println();
+		  } 
+    System.out.println("after transpose matrix is ");
+    for(int i=0;i<m;i++) {
+    	for(int j=0;j<n;j++) {
+    	System.out.print(arr[j][i]+" ");
+    	}
+    	System.out.println();
+    }
+		
+		
+		//addition of two matrix
+		System.out.println("Enter row size for matrix: ");
+		int n1=s.nextInt();
+		System.out.println("Enter column size for matrix: ");
+        int m1=s.nextInt();
+       int a[][]=new int[n1][m1];
+       int b[][]=new int[n1][m1];
+      System.out.println("Enter array elements: "); 
+     for(int i=0;i<n1;i++) {
+    	 for(int j=0;j<m1;j++) {
+    		 a[i][j] =s.nextInt();
+    		 b[i][j]=s.nextInt();
+    	 }
+     }
+     for(int i=0;i<n1;i++) {
+    	 for(int j=0;j<m1;j++) {
+    		 a[i][j]+=b[i][j];
+    	 }
+     }
+     for(int i=0;i<n1;i++) {
+    	 for(int j=0;j<m1;j++) {
+    		System.out.print( a[i][j]+" " );
+    	 }
+    	 System.out.println();
+     }
+		
+		//subtract of two matrix 
+		System.out.println("Enter row size for matrix: ");
+		int n1=s.nextInt();
+		System.out.println("Enter column size for matrix: ");
+        int m1=s.nextInt();
+       int a[][]=new int[n1][m1];
+       int b[][]=new int[n1][m1];
+      System.out.println("Enter array elements: "); 
+     for(int i=0;i<n1;i++) {
+    	 for(int j=0;j<m1;j++) {
+    		 a[i][j] =s.nextInt();
+    		 b[i][j]=s.nextInt();
+    	 }
+     }
+     for(int i=0;i<n1;i++) {
+    	 for(int j=0;j<m1;j++) {
+    		 a[i][j]-=b[i][j];
+    	 }
+     }
+     System.out.println("Subtract matrix is:");
+     for(int i=0;i<n1;i++) {
+    	 for(int j=0;j<m1;j++) {
+    		System.out.print( a[i][j]+" " );
+    	 }
+    	 System.out.println();
+     }
+		
+		//multiplication of matrix
+		System.out.print("enter matrix_1 row size: ");
+        int n1=s.nextInt();
+        System.out.print("enter matrix_1 column size: ");
+        int m1=s.nextInt();
+        System.out.print("enter matrix_2 row size: ");
+        int n2=s.nextInt();
+        System.out.print("enter matrix_2 column size: ");
+        int m2=s.nextInt();
+        int a[][]=new int[n1][m1];
+        int b[][]=new int[n2][m2];
+        System.out.println("Enter matrix_1 elements");
+        for(int i=0;i<n1;i++) {
+        	for(int j=0;j<m1;j++) {
+        		a[i][j]=s.nextInt();
+        	}
+        }
+        System.out.println("Enter matrix_2 elements");
+        for(int i=0;i<n2;i++) {
+        	for(int j=0;j<m2;j++) {
+        		b[i][j]=s.nextInt();
+        	}
+        }
+        int mul[][]=new int[n1][m2];
+        for(int i=0;i<n1;i++) {
+        	for(int j=0;j<m2;j++) {
+        	    int sum=0,multi=1;
+        		for(int k=0;k<m1;k++) {
+        		multi=a[i][k]*b[k][j];
+        		sum+=multi;
+        		
+        	}
+        		mul[i][j]=sum;
+        }
+        
+        }
+       System.out.println("mutiplication matrix");
+       for(int i=0;i<n1;i++) {
+    	   for(int j=0;j<m2;j++) {
+    		   System.out.print(mul[i][j]+" ");
+    	   }
+    	   System.out.println();
+       }
+        
+        
+              
+  //check if the matrix is symmetric
+		System.out.print("Enter row size");
+		int n=s.nextInt();
+		System.out.print("Enter column size");
+		int m=s.nextInt();
+		int arr[][]=new int[n][m];
+		System.out.print("Enter array elements: ");
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<m;j++) {
+				arr[i][j]=s.nextInt();
+			}
+		}
+  int b[][]=new int[m][n];
+  for(int i=0;i<m;i++) {
+	  for(int j=0;j<n;j++) {
+		  b[i][j]=arr[j][i];
+	  }  
+  }
+  for(int i=0;i<n;i++) {
+		 for(int j=0;j<m;j++) {
+			 System.out.print(arr[i][j]);
+		 }
+		 System.out.println();
+	 }
+  System.out.println("after transpose: ");
+ for(int i=0;i<m;i++) {
+	 for(int j=0;j<n;j++) {
+		 System.out.print(b[i][j]);
+	 }
+	 System.out.println();
+ }
+ int count=0;
+ for(int i=0;i<n;i++) {
+	 for(int j=0;j<m;j++) {
+		 if(arr[i][j]==b[i][j]) {
+			 count++;
+		 }
+	 }
+ }
+ if(count>0) {
+	 System.out.println("matrix is symmetric");
+ }
+ else {
+	 System.out.println("matrix is non symmetric ");
+ }
+		
+		//check if the matrix is identity
+ System.out.print("Enter row size: ");
+ int n=s.nextInt();
+ System.out.print("Enter column size: ");
+ int m=s.nextInt(), one=0,zero=0;
+ int a[][]=new int [n][m];
+ System.out.println("Enter array elements: ");
+ for(int i=0;i<n;i++) {
+	 for(int j=0;j<m;j++) {
+		 a[i][j]=s.nextInt();
+	 }
+ }
+ for(int i=0;i<n;i++) {
+	 for(int j=0;j<m;j++) {
+		 if(i==j) {
+			 if(a[i][j]==1) {
+				 one++;
+			 }
+		 }
+	if(i!=j) {
+		if(a[i][j]==0) {
+			zero++;
+		}
+	}
+	 }
+ }
+ if(one==n && zero==((n*m)-n) ){
+	 System.out.println("Identity matrix");
+ }
+ else {
+	 System.out.println("Not Identity matrix");
+ }
+ 
+ //upper triangular matrix
+		System.out.print("Enter row size: ");
+		int n=s.nextInt();
+		System.out.print("Enter column size: ");
+		int m=s.nextInt();
+		boolean ans=true;
+		int a[][]=new int[n][m];
+		System.out.println("Enter array elements: ");
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<m;j++) {
+				a[i][j]=s.nextInt();
+			}
+		}
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<i;j++) {
+					if(a[i][j]!=0) {
+					  ans=false;
+					}
+				}
+				
+				}
+		
+		if(ans) {
+			System.out.println("Upper triangular matrix");
+		}
+		else {
+			System.out.println("Not Upper triangular matrix");
+		}
+		
+		
+		//Lower triangular matrix
+		System.out.print("enter row and column size: ");
+		int n=s.nextInt();
+		int a[][]=new int[n][n];
+		System.out.println("Enter array elemnts: ");
+		for(int i=0;i<a.length;i++) {
+			for(int j=0;j<a.length;j++) {
+				a[i][j]=s.nextInt();
+			}
+		}
+		for(int i=0;i<a.length;i++) {
+			for(int j=0;j<i;j++) {
+					if(a[i][j]!=0) {
+					   zero=false;
+					}
+				}
+			}
+		}
+		
+	//Rotate matrix at 90 deg
+		System.out.println("Enter array size: ");
+	 int n=s.nextInt();	
+	 int arr[][]=new int[n][n];
+	 System.out.println("Enter array elements :");
+	 for(int i=0;i<arr.length;i++) {
+		 for(int j=0;j<arr.length;j++) {
+			 arr[i][j]=s.nextInt();
+		 }
+	 }
+	 System.out.println("Given array: ");
+	 for(int i=0;i<arr.length;i++) {
+		 for(int j=0;j<arr.length;j++) {
+			 System.out.print(arr[i][j]);
+		 }
+		 System.out.println();
+	 }
+	System.out.println("Transposed matrix: ");
+   for(int i=0;i<arr.length;i++) {
+	   for(int j=0;j<arr.length;j++) {
+		   System.out.print(arr[j][i]);
+	   }
+	   System.out.println();
+   }
+  System.out.println("Rotate matrix: ");
+  for(int i=arr.length-1;i>=0;i--) {
+	  for(int j=0;j<arr.length;j++) {
+		  System.out.print(arr[i][j]);
+	  }
+	  System.out.println();
+  }
+		
+		//spiral traversal of matrix
+		System.out.println("Enter array row  size: ");
+		int n=s.nextInt();
+     int arr[][]=new int[n][n];
+     System.out.println("Enter array elements: ");
+     for(int i=0;i<arr.length;i++) {
+    	 for(int j=0;j<arr.length;j++) {
+    		 arr[i][j]=s.nextInt();
+    	 }
+     }
+     for(int i=0;i<arr.length;i++) {
+    	 for(int j=0;j<arr.length;j++) {
+    		 System.out.print(arr[i][j]);
+    	 }
+    	System.out.println(); 
+     }
+     
+  int end_row=arr.length-1,end_col=arr[0].length-1,st_row=0,st_col=0;
+
+  for(int i=st_col;i<=end_col;i++) {
+	  System.out.println(arr[st_row][i]);  
+  }
+  st_row++;
+  for(int i=st_row;i<=end_col;i++) {
+	  System.out.println(arr[i][end_col]);
+  }
+  end_col--;
+  for(int i=end_col;i>=0;i--) {
+	  System.out.println(arr[end_row][i]);
+  }
+for(int i=st_col;i<=end_col;i++) {
+	System.out.println(arr[st_row][i]);
+}
+
+}
+}
