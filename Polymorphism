@@ -1,0 +1,59 @@
+//1.A calculator application should support adding two numbers or three numbers using the same method name.
+class Calculator{
+	int add(int a,int b) {
+		return (a+b);
+	}
+	int add(int a,int b,int c) {
+		return (a+b+c);
+	}
+}
+public class Polymorphism_1 {
+	public static void main(String[] args) {
+
+		Calculator c=new Calculator();
+		System.out.println("Adding of Two numbers: "+c.add(10, 20));
+		System.out.println("Adding of Three numbers: "+ c.add(12, 10,84));    
+	}
+}
+
+//2.A geometry program should compute the area for multiple shapes using methods with the same name.
+class Geometry{
+	void shape(double a) {
+		System.out.println("Area of Square is: "+(a*a));
+	}
+	void shape(double l,double b) {
+		System.out.println("Area of Rectangle is: "+(l*b));
+	}
+	void shape(double l,double b,double h){
+      System.out.println("Area of Triangle is: "+((l*b*h)/2));		
+	}
+	void shape(){
+		System.out.println("Invalid shape");
+	}
+}
+public class Polymorphism_1 {
+	public static void main(String[] args) {
+Geometry g=new Geometry();
+g.shape(5);
+g.shape(12, 14);
+g.shape(13, 12, 28);
+g.shape();
+	}
+}
+
+//3.In a zoo simulation, animals produce different sounds using the same method.
+class Zoo{   
+	void sound(String name) {
+		System.out.println(name+" says: Meow Meow...");
+	}
+	void sound(String name,int num){
+		System.out.println(name+" says:Wow Wow...");
+	}
+}
+public class Polymorphism_1 {
+	public static void main(String[] args) {
+  Zoo z=new Zoo();
+z.sound("cat");
+z.sound("Dog",1);
+	}
+}
