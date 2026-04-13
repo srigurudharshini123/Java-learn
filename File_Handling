@@ -80,3 +80,100 @@ Scanner sc=new Scanner(System.in);
 	}
 
 }
+
+ //3.Daily attendance stored in file
+     //Task:
+     //Mark attendance (Present/Absent)
+     //Save date + student name
+     //Read attendance for a specific date
+import java.io.*;
+import java.util.Scanner;
+
+public class File_1 {
+
+	public static void main(String[] args) throws IOException {
+         Scanner sc=new Scanner(System.in);
+		System.out.println("Enter no of students: ");
+		int n=sc.nextInt();
+		for(int i=1;i<=n;i++) {
+		System.out.println("Enter name: ");
+		String name=sc.next();
+		System.out.println("Enter date: ");
+		String dates=sc.next();
+		System.out.println("Enter present/absent: ");
+		String attent=sc.next();
+		BufferedWriter bw= new BufferedWriter(new FileWriter("C:\\Users\\ELCOT\\OneDrive\\Documents\\filetask\\attendance.txt",true));
+        bw.write(name+","+dates+","+attent);
+        bw.newLine();
+        bw.close();
+		}
+		
+		BufferedReader br=new BufferedReader(new FileReader("C:\\Users\\ELCOT\\OneDrive\\Documents\\filetask\\attendance.txt"));
+		System.out.println("Enter date for get attendance: ");
+		String dated=sc.next();
+		String line;
+		while((line=br.readLine())!=null){
+			String data[]=line.split(",");
+		  if(dated.equalsIgnoreCase(data[1])) {
+			  if(data[2].equalsIgnoreCase("present")) {
+			  System.out.println(data[0]+" is present");
+		  }
+		}
+		}
+	}
+}
+
+
+
+
+		//4.Bank wants to store transactions
+		//Task:
+		//Deposit / Withdraw
+		//Save each transaction in file
+		//Show transaction histry
+import java.io.*;
+import java.util.Scanner;
+
+public class File_1 {
+
+	public static void main(String[] args) throws IOException {		
+
+Scanner sc=new Scanner(System.in);
+	BufferedWriter bw=new BufferedWriter(new FileWriter("C:\\Users\\ELCOT\\OneDrive\\Documents\\filetask\\Bank.txt",true));
+	System.out.println("Enter your option:\n1.Deposit \n2.Withdraw \n3.Checkbalance");
+	double balence=40000;
+	int option=sc.nextInt();
+	if(option==1) {
+		System.out.println("Enter amount for Deposit: ");
+		double amt=sc.nextDouble();
+		balence+=amt;
+	    bw.write("Deposit: "+amt+"-> Current Balence: "+balence);
+	    bw.newLine();
+	}
+	else if(option==2) {
+		System.out.println("Enter amount for Withdraw: ");
+		double amt1=sc.nextDouble();
+		if(amt1<=balence) {
+		balence-=amt1;
+		bw.write("Withdraw: "+amt1+"-> Current Balence: "+balence);
+		bw.newLine();
+	  }
+		else {
+			System.out.println("Insufficient Balence");
+		}
+	}
+	else if(option==3) {
+		System.out.println("Balance is: "+balence);
+	}
+	bw.close();
+	BufferedReader br=new BufferedReader(new FileReader("C:\\Users\\ELCOT\\OneDrive\\Documents\\filetask\\Bank.txt"));
+	String line;
+	while((line=br.readLine())!=null){
+		System.out.println(line);
+	}
+		
+		
+		
+	}
+}
+
