@@ -1,0 +1,422 @@
+//1.In a zoo management system, animals share a behavior such as eating while dogs also bark. Represent this using inheritance.
+class Zoo{
+		void eat() {
+			System.out.println("this animal can eat...");
+		}
+	}
+	class Dog extends Zoo{
+		void bark() {
+			System.out.println("Dog is barking");
+		}
+	}
+	class Cat extends Zoo{
+		void drink() {
+			System.out.println("It will drink milk");
+		}
+	}
+public class Inherit_1 {
+	public static void main(String[] args) {
+Dog d=new Dog();
+   d.eat();
+   d.bark();
+   Cat c=new Cat();
+   c.eat();
+   c.drink();
+}
+}
+
+//2.A vehicle system defines common features for vehicles while cars have additional behavior such as driving.
+class Vehicle{
+	void engine() {
+		System.out.println("Have engine to start");
+	}
+	void stop() {
+		System.out.println("Have breaks to stop");
+	}
+	void  acces() {
+		System.out.println("Have Accelerator");
+	}
+}
+class Car extends Vehicle{
+	void wheel() {
+		System.out.println("It has four wheels");
+	}
+	void drive() {
+		System.out.println("we can drive car");
+	}
+}
+class Bike extends Vehicle{
+	void wheel() {
+		System.out.println("It has two wheels");
+	}
+	void drive() {
+		System.out.println("We can drive bike");
+	}
+}
+public class Inherit_1 {
+	public static void main(String[] args) {
+ Car c=new Car();
+  c.engine();
+  c.stop();
+  c.acces();
+  c.wheel();
+  c.drive();
+  System.out.println("------------");
+  Bike b=new Bike();
+  b.engine();
+  b.stop();
+  b.acces();
+  b.wheel();
+  b.drive();
+}
+}
+
+//3.A college database represents a person with name and age, while a student has additional details such as rollNo and marks.
+class College{
+	String name;
+	int age;
+}
+class Student extends College{
+	void student(int rollno,double mark) {
+		System.out.println("Student name: "+name);
+		System.out.println("Student age: "+ age);
+		System.out.println("Student roll number: "+rollno);
+		System.out.println("Student mark:"+mark);
+	}
+}
+public class Inherit_1 {
+	public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+ Student st=new Student();
+ System.out.println("Enter name: ");
+st.name=s.nextLine();
+System.out.println("Enter age: ");
+st.age=s.nextInt();
+System.out.println("Enter rollno: ");
+int roll=s.nextInt();
+System.out.println("Enter mark outof 500:");
+double mark=s.nextDouble();
+st.student(roll, mark);
+}
+}
+
+//4.A company system manages employees, while managers receive an additional bonus.
+class Company{
+	boolean bonus=false;
+	void manage() {
+		System.out.println("Manages each employees and allocate their work");
+		bonus=true;
+	}
+}
+class Manager extends Company{
+	void check() {
+	if(bonus) {
+		System.out.println("Get bonus");
+	}
+	else {
+		System.out.println("No bonus");
+	}
+	}
+}
+public class Inherit_1 {
+	public static void main(String[] args) {
+Manager m=new Manager();
+m.manage();
+m.check();
+}
+}
+
+//5.A drawing application defines shapes while circles and rectangles implement their own area calculations.
+class Draw{
+	void shape(String Shape) {
+		System.out.println("your shape is: "+Shape);
+	}
+}
+class Circule extends Draw{
+	void Carea(int r) {
+		double ans=Math.PI*r*r;
+		System.out.println("Area of Circule is: "+ans);
+	}
+}
+class Rectangle extends Circule{
+	void Rarea(int l,int b) {
+		double ans=l*b;
+		System.out.println("Area of Rectangle is: "+ans);
+	}
+}
+class Square extends Rectangle{
+	void Sarea(int a) {
+		double ans=Math.pow(a, 2);
+		System.out.println("Area of Square is: "+ans);
+	}
+}
+public class Inherit_1 {
+	public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+System.out.println("Enter shape: ");
+String shape=s.next();
+Square sq=new Square();
+sq.shape(shape);
+if(shape.equalsIgnoreCase("Circule")) {
+	System.out.println("Enter radius: ");
+	int r=s.nextInt();
+	sq.Carea(r);
+}
+else if(shape.equalsIgnoreCase("Rectangle")) {
+	System.out.println("Enter value of l and b");
+	int l=s.nextInt();
+	int b=s.nextInt();
+	sq.Rarea(l, b);
+}
+else if(shape.equalsIgnoreCase("Square")) {
+	System.out.println("Enter square a: ");
+	int a=s.nextInt();
+	sq.Sarea(a);
+}
+else {
+	System.out.println("Invalid shape...");
+}
+}
+}
+
+//6.A banking system defines general account behavior while savings and current accounts have specialized features.
+class Bank{
+	boolean verified=false;
+	double balance;
+	void verify(long accno,String name) {
+		int c=0;
+		if(accno==955483902 && name.equalsIgnoreCase("sriguru")) {
+			c++;
+			verified=true;
+		}
+		else {
+			System.out.println("Invalid data");
+		}
+		if(c==1) {
+			System.out.println("Suceesfully verified your account: ");
+		}
+	}
+}
+class Saving extends Bank{
+	double bal=50000;
+	void checkbal() {
+		System.out.println("Your balance is: "+bal);
+	}
+	void withdraw(double with){
+		if(bal>with) {
+			bal-=with;
+			System.out.println("Wihdraw succesflly....");
+			System.out.println("your balance is: "+bal);
+	}
+		else {
+			System.out.println("Insufficient balence");
+		}
+	}
+	void deposit(double depo) {
+		bal+=depo;
+		System.out.println("Deposit succesfully....");
+		System.out.println("Your balance is: "+bal);
+	}
+	void save() {
+		System.out.println("You saved ₹1000");
+		bal+=1000;
+		System.out.println("Your balance is: "+bal);
+	}
+}
+class Account extends Bank{
+	void acc() {
+		System.out.println("You have one account...");
+	}
+}
+public class Inherit_1 {
+	public static void main(String[] args) {
+Saving s=new Saving();
+s.verify(955483902l, "sriguru");
+if(s.verified) {
+s.checkbal();
+s.withdraw(10000);
+s.deposit(20000);
+s.save();
+Account a=new Account();
+a.acc();
+}
+}
+}
+
+//8.A transport system manages different vehicle types such as bike, car, and truck.
+class Transport{
+	String vehicle(String vehicle) {
+		return vehicle;
+	}
+}
+class Car extends Transport{
+	void cars() {
+		System.out.println("Your car travel  is booked...");
+	}
+}
+class Bike extends Transport{
+	void bikes() {
+		System.out.println("Your bike travel is booked... ");
+	}
+}
+class Truck extends Transport{
+	void Trucks() {
+		System.out.println("Your truck is booked...");
+	}
+}
+class Bus extends Transport{
+	void buses() {
+		System.out.println("Your bus travel is booked...");
+	}
+}
+Scanner sc=new Scanner(System.in);
+Transport t=new Transport();
+Car c=new Car();
+Bike b=new Bike();
+Truck tk=new Truck();
+Bus bs=new Bus();
+System.out.println("Enter your vehicle : ");
+String vehicle = sc.next();
+String vehi=t.vehicle(vehicle);
+System.out.println("Your vehicle is: "+vehi);
+if(vehi.equalsIgnoreCase("Car")) {
+	c.cars();
+}
+else if(vehi.equalsIgnoreCase("bike")) {
+	b.bikes();
+}
+else if(vehi.equalsIgnoreCase("truck")) {
+	tk.Trucks();
+}
+else if(vehi.equalsIgnoreCase("bus")) {
+	bs.buses();
+}
+else {
+	System.out.println("Invalid vehicle...");
+}
+}
+}
+
+//8.A school system represents a general person and extends it into teacher and student roles.
+class Schools{
+	void person(String person,double time){
+		System.out.println(person+" -> Enter into the school at "+time);
+	}
+}
+class Teacher extends Schools{
+	void check(String name) {
+		System.out.println("Finished their classes "+name);
+	}
+}
+class Student extends Schools{
+	void Attend(String name,int Roll) {
+		System.out.println("Name: "+name);
+		System.out.println("ROllnumber: "+Roll);
+		System.out.println("Present....");
+	}
+}
+	public class Inherit_1 {
+	public static void main(String[] args) {
+                Teacher t=new Teacher();
+		t.person("Teacher", 9.00);
+		t.check("Dharshini");
+		Student st=new Student();
+		st.person("Student" , 9.30);
+		st.Attend("Guru", 102);
+}
+}
+
+//9.A product catalog includes categories such as electronics and clothing derived from a product class.
+class Product{
+	void categories(int id,String name){
+		System.out.println("ID: "+id+"\nName: "+name);
+	}
+}
+class Electronics extends Product{
+	void electronic(String name,double price){
+		System.out.println(name+"--->"+price);
+	}
+}
+class Clothing extends  Electronics{
+	void cloth(String name,double price) {
+		System.out.println(name+"--->"+price);
+	}
+}
+	public class Inherit_1 {
+	public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter your option\n1.Electronics\n2.Clothing");
+String name=sc.next();
+int id=sc.nextInt();
+sc.nextLine();
+Clothing cl=new Clothing();
+cl.categories(id, name);
+if(id==1) {
+	System.out.println("Enter name for electronic product:\n1.AC\n2.Washing Machine\n3.TV");
+	String name1=sc.nextLine();
+	if(name1.equalsIgnoreCase("ac"))
+	 cl.electronic(name1,200000);  
+	else if(name1.equalsIgnoreCase("Washing Machine"))
+		cl.electronic(name1,20000.12);
+	else if(name1.equalsIgnoreCase("tv"))
+		cl.electronic(name1,30000.34);
+	else
+		System.out.println("Invalid Product");
+}
+else if(id==2) {
+	System.out.println("Enter name for clothing: \n1.Cotton\n2.Nylon\n3.Silk");
+	String name1=sc.next();
+	if(name1.equalsIgnoreCase("Cotton"))
+		 cl.electronic(name1,2000);  
+		else if(name1.equalsIgnoreCase("Nylon"))
+			cl.electronic(name1,500.12);
+		else if(name1.equalsIgnoreCase("Silk"))
+			cl.electronic(name1,300.34);
+		else
+			System.out.println("Invalid Product"); 
+}
+	}
+	}
+
+//10.A hospital system represents staff and extends it into doctor and nurse roles.
+class Hospital{
+	void salary(String name) {
+     if(name.equalsIgnoreCase("Doctor")) {
+    	 System.out.println(name+" Salary is: 2Lakhs");
+     }
+     else if(name.equalsIgnoreCase("nurse")) {
+    	 System.out.println(name+" Salary is: 50000");
+     }
+     else {
+    	 System.out.println("Invalid name");
+     }
+	}
+}
+class Doctor extends Hospital{
+	void operation() {
+		System.out.println("Allowed to make surgery");
+	}
+	void Emergency() {
+		System.out.println("Get patient information from nurse & start treatment");
+	}
+}
+class Nurse extends Hospital{
+	void Emergency() {
+		System.out.println("Imediately give firstaid");
+	}
+	void operation() {
+		System.out.println("Make assist during surgery period");
+	}
+}
+	public class Inherit_1 {
+	public static void main(String[] args) {
+Doctor dr=new Doctor();
+dr.Emergency();
+dr.operation();
+dr.salary("Doctor");
+Nurse n=new Nurse();
+n.Emergency();
+n.operation();
+n.salary("Nurse");
+	}
+	}
