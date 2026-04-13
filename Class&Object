@@ -1,0 +1,285 @@
+//1.A school system needs to maintain student information such as id, name, and marks. Design a class to store these details and display them using objects.
+class School{
+	 public void display(int id,String name,double mark) {
+		 System.out.println("Student ID: "+id);
+		 System.out.println("Student Name: "+name);
+		 System.out.println("Mark: "+mark);
+	 }
+	 
+ }
+public class ClassObj_1 {
+
+	public static void main(String[] args) {
+ Scanner s=new Scanner(System.in);
+ System.out.println("Enter student id: ");
+  int id=s.nextInt();
+  s.nextLine();
+  System.out.println("Enter student name: ");
+  String name=s.nextLine();
+  System.out.println("Enter mark: ");
+  double mark=s.nextDouble();
+  School stu1=new School();
+  stu1.display(id, name, mark);
+}
+}
+
+//2.A rectangle calculator must compute the area using length and breadth. Represent the rectangle as a class and calculate the area.
+class Rectangle{
+	double a=160;
+	double b=139;
+	double Rect_area() {
+		double area=a*b;
+		return area;
+	}
+}
+public class ClassObj_1 {
+
+	public static void main(String[] args) {
+Rectangle r=new Rectangle();
+ System.out.println("Rectangle area is: "+ r.Rect_area()); 
+}
+}
+
+//3.A circle utility should determine the area and circumference using a given radius. Model this using a class and suitable methods.
+class Circule{
+	void area(double r) {
+		double area=Math.PI*r*r;
+		System.out.println("Area is: "+ Math.round(area));
+	}
+	void circumference(double r) {
+		double circum=2*(Math.PI)*r;
+		System.out.println("Circumference is: "+ Math.round(circum));
+	}
+}
+public class ClassObj_1 {
+
+	public static void main(String[] args) {
+Circule c=new Circule();
+c.area(7);
+c.circumference(7);
+}
+}
+
+//4.An HR system manages employees with attributes id, name, and salary. Create objects representing different employees and print their details.
+class HR{
+	int id;
+	String name;
+	float salary;
+	void empolyee(int id,String name,float salary) {
+		id=this.id;
+		name=this.name;
+		salary=this.salary;
+		System.out.println("Empolyee id: "+id);
+		System.out.println("Empolyee name: "+name);
+		System.out.println("Salary is: "+salary);
+	}
+}
+public class ClassObj_1 {
+
+	public static void main(String[] args) {
+Scanner s=new Scanner(System.in);		
+HR h=new HR();
+h.id=s.nextInt();
+h.name=s.next();
+h.salary=s.nextFloat();
+h.empolyee(h.id, h.name, h.salary);
+}
+}
+
+//5.A car showroom stores information like brand, model, and price. Represent each car as an object and display the inventory.
+class Car{
+	void display_cars(String brand,String modal,float price) {
+		System.out.println("Brand is: "+brand+"  Modal is: "+modal+"  Price is: "+price);
+	}
+}
+public class ClassObj_1 {
+	public static void main(String[] args) {
+Car c=new Car();
+c.display_cars("Audi","New model", 200000.0f);
+}
+}
+
+//6.A mobile shop maintains mobile specifications such as brand, price, and storage. Design a class to represent a mobile device.
+class Mobile{
+String brand;
+double price;
+int storage;
+void device(String brand,double price,int storage) {
+	this.brand=brand;
+	this.price=price;
+	this.storage=storage;
+	System.out.println("Mobile brand: "+brand);
+	System.out.println("Mobile price: "+price);
+	System.out.println("Mobile storage: "+storage+" GB");
+}
+}
+public class ClassObj_1 {
+	public static void main(String[] args) {
+Mobile m=new Mobile();
+Scanner s=new Scanner(System.in);
+System.out.println("Enter brand: ");
+String brand=s.next();
+System.out.println("Enter price: ");
+double price=s.nextDouble();
+System.out.println("Enter storage: ");
+int storage=s.nextInt();
+m.device(brand, price, storage);
+}
+}
+
+//7.A banking system maintains an account with accountNumber, name, and balance, allowing deposit and withdrawal operations.
+class HDFCBank{
+	long acc_number;
+	String name;
+	double balance=50000;
+	void withdraw(double amt) {
+		if(balance>amt) {
+			balance-=amt;
+			System.out.println("Current balance: "+balance);
+		}
+		else {
+			System.out.println("Insufficient balance");
+		}
+	}
+	void deposit(double amt) {
+		balance+=amt;
+		System.out.println("Current balance : "+balance);
+	}
+	void check() {
+		System.out.println("Your balance is: "+balance);
+	}
+}
+public class ClassObj_1 {
+	public static void main(String[] args) {
+HDFCBank h=new HDFCBank();
+Scanner s=new Scanner(System.in);
+System.out.println("Enter your account number: ");
+h.acc_number=s.nextLong();
+System.out.println("Enter your name: ");
+h.name=s.next();
+System.out.println("Enter your operation: ");
+String a=s.next();
+switch(a) {
+case "withdraw":
+	System.out.println("Enter withdraw amount: ");
+	double amt=s.nextDouble();
+	h.withdraw(amt);
+	break;
+case "deposit":
+	System.out.println("Enter deposit amount: ");
+	double amt1=s.nextDouble();
+	h.deposit(amt1);
+	break;
+case "check":
+	h.check();
+	break;
+default:
+	System.out.println("----- Bank services closed -----");
+}
+}
+}
+
+//8.A library catalog stores details of books such as bookId, bookName, and author. Create objects to represent books in the catalog.
+class Library{
+	void book(int bookId,String bookName,String author) {
+		System.out.println("The book is: "+bookName);
+		System.out.println("Book ID : "+bookId);
+		System.out.println("Author name is: "+author);
+	}
+}
+public class ClassObj_1 {
+	public static void main(String[] args) {
+Library l=new Library();
+Scanner s=new Scanner(System.in);
+System.out.print("Enter bookId: ");
+int bookId=s.nextInt();
+System.out.println("Enter book name: ");
+String bookName=s.nextLine();
+s.nextLine();
+System.out.println("Enter Author name: ");
+String author=s.nextLine();
+l.book(bookId, bookName, author);
+}
+}
+
+//9.A laptop inventory system tracks brand, ram, and price. Use a class to display laptop specifications.
+class Laptop{
+	String dis_brand(String brand) {
+		return brand;
+	}
+	int dis_ram(int ram) {
+		return ram;
+	}
+	double dis_price(double price) {
+		return price;
+	}
+}
+public class ClassObj_1 {
+	public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+System.out.println("Enter Laptop brand: ");
+String brand=s.next();
+System.out.println("Enter Laptop ram:");
+int ram=s.nextInt();
+System.out.println("Enter Laptop price");
+double price=s.nextDouble();
+Laptop l=new Laptop();
+System.out.println("The brand is: "+l.dis_brand(brand));
+System.out.println("The Laptop RAM is: "+l.dis_ram(ram));
+System.out.println("The price is: "+l.dis_price(price));
+}
+}
+
+//10.A movie database maintains movie details such as title, director, and rating.A product billing system stores product details including productId, productName, and price
+class Movie{
+	int movie_amt=2000;
+	void movies(String title,String director,int rating) {
+		System.out.println("Movie name: "+title);
+		System.out.println("Movie director: "+director);
+		System.out.println("Rating: "+rating);
+	}
+	void product(int productId,String productName,double price) {
+		System.out.println("Product ID: "+productId);
+		System.out.println("product Name: "+productName);
+		System.out.println("Product price: "+price);
+		double tot= movie_amt+price;
+		System.out.println("---------- Over all bill is: "+tot+" ---------- ");
+	}
+}
+public class ClassObj_1 {
+	public static void main(String[] args) {
+Movie m=new Movie();
+m.movies("Ratham Ranam Rowthiram","Raja mouli",5);
+m.product(1,"popcon",500);
+m.movies("Doctor","Nelson",5);
+m.product(2, "Chicken roll",1000);
+}
+}
+
+//11.A hotel booking system keeps track of rooms with attributes such as roomNumber, type, and price.
+class Hotal{
+	int roomNumber;
+	String roomtype;
+	double price;
+	void display() {
+		System.out.println("RoomNumber: "+roomNumber);
+		System.out.println("roomtype: "+roomtype);
+		System.out.println("Price :" +price);
+	}
+}
+public class ClassObj_1 {
+	public static void main(String[] args) {
+Hotal room1=new Hotal();
+room1.roomNumber=101;
+room1.roomtype="Deluxe room";
+room1.price=15000;
+room1.display();
+System.out.println("------------");
+Hotal  room2=new Hotal();
+room2.roomNumber=102;
+room2.roomtype="Presidential";
+room2.price=50000;
+room2.display();
+}
+}
+
