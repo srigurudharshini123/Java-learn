@@ -1,0 +1,84 @@
+import java.util.ArrayList;
+public class Collections_1 {
+	public static void main(String[] args) {
+	//1.In a shopping app, store products in a cart using ArrayList and allow users to add or remove items dynamically. Display all items whenever the cart is opened.
+	ArrayList <String> shop=new ArrayList<>();
+	shop.add("Apple");
+	shop.add("Mango");
+	shop.add("Banana");
+	shop.add("Pine apple");
+	shop.add("Dragon");
+	System.out.println(shop);
+	shop.remove(2);
+	shop.remove(0);
+	System.out.println(shop);		
+	}	
+}
+
+
+//2.In a student system, maintain marks using ArrayList and update marks by index when corrections are needed. Also calculate average marks.
+	ArrayList <Integer>	student =new ArrayList<>();
+	Scanner sc=new Scanner(System.in);
+	System.out.println("enter number of Subjects: ");
+	int n=sc.nextInt();
+	System.out.println("Enter marks for "+n+"subjects: ");
+	for(int i=0;i<n;i++) {
+		int mark=sc.nextInt();
+		student.add(mark);
+	}
+	System.out.println(student);
+	student.set(0,92);
+	student.set(2,70);
+	System.out.println(student);
+	int tot=0;
+	for(int i=0;i<n;i++) {
+		tot+=student.get(i);
+	}
+	double avg=tot/n;
+	System.out.println("Average is: "+avg);	
+	}	
+}
+
+
+//3.In a movie app, store favorite movies and allow users to search and sort them alphabetically for easy viewing.
+ArrayList <String> movie=new ArrayList<>();
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter no of movies: ");
+int n=sc.nextInt();
+sc.nextLine();
+System.out.println("Enter Movie names: ");
+for(int i=0;i<n;i++) {
+  String name=sc.nextLine();
+  movie.add(name);
+}
+System.out.println(movie);
+System.out.println("Sorted array: ");
+java.util.Collections.sort(movie);
+System.out.println(movie);
+System.out.println("Enter movie name: ");
+String n1=sc.nextLine();
+n1=n1.toLowerCase();
+for(int i=0;i<n;i++) {
+	if(n1.equals(movie.get(i))){
+		System.out.println(movie.indexOf(n1));
+	}
+}
+
+
+//4.In a contact list, store phone numbers and quickly access any contact using its position in the list.
+ArrayList <Long> phno=new ArrayList<>();
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter no of contact list: ");
+int n=sc.nextInt();
+System.out.println("Enter phone numbers: ");
+for(int i=0;i<n;i++) {
+  long ph=sc.nextLong();
+  phno.add(ph);
+}
+System.out.println(phno);
+System.out.println("Enter the position : ");
+int i=sc.nextInt();
+System.out.println(phno.get(i));
+}
+}
+
